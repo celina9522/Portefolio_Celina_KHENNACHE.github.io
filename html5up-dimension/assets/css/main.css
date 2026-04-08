@@ -1295,8 +1295,10 @@ body.is-preload #header .content .inner {
 		width: 4.8rem;
 		height: 4.8rem;
 		line-height: 4.8rem;
-	}
 
+		
+	}
+	
 	#header .logo .icon:before {
 		font-size: 1.7rem;
 	}
@@ -1565,4 +1567,235 @@ body.is-preload #footer {
 		max-height: 220px;
 		border-radius: 14px;
 	}
+	@media screen and (max-width: 768px) {
+	.features {
+		grid-template-columns: 1fr;
+	}
+	}
+
+}
+/* Transformer les blocs en grille (colonnes) */
+.features, .posts {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+	gap: 1.5rem;
+}
+
+/* Style des cartes */
+.features section, .posts section {
+	background: rgba(255,255,255,0.05);
+	padding: 1.5rem;
+	border-radius: 10px;
+	transition: 0.3s;
+}
+
+/* Effet au survol */
+.features section:hover, .posts section:hover {
+	transform: translateY(-5px);
+	background: rgba(255,255,255,0.1);
+}
+.posts section .image img {
+	width: 100%;
+	height: 180px;        /* taille fixe */
+	object-fit: cover;    /* coupe l’image proprement */
+	border-radius: 8px;
+}
+/* Layout en 2 colonnes */
+.features {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 3rem;
+}
+
+/* Chaque bloc */
+.features section {
+	display: flex;
+	align-items: flex-start;
+	gap: 1.5rem;
+}
+
+/* Icône */
+.features .icon {
+	min-width: 80px;
+	height: 80px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: 2px solid rgba(255,255,255,0.2);
+	border-radius: 10px;
+	font-size: 2rem;
+}
+.icon {
+	color: #3bd9f5 !important; /* bleu */
+}
+
+/* Texte */
+.features .content h3 {
+	margin-bottom: 0.5rem;
+}
+
+.features .content p {
+	margin: 0;
+	line-height: 1.6;
+}
+.skills-note {
+	margin-top: 2rem;
+	padding: 1rem 1.2rem;
+	border: 1px solid rgba(255,255,255,0.08);
+	border-radius: 14px;
+	background: rgba(255,255,255,0.03);
+	color: rgba(255,255,255,0.72);
+	font-size: 1rem;
+	line-height: 1.8;
+	text-align: center;
+	width: 100%;
+	max-width: 100%;
+
+	grid-column: 1 / -1; /* prend toute la ligne */
+} 
+/* ===== Affichage type maquette / présentation projet ===== */
+
+.project-gallery {
+    margin: 2rem 0;
+}
+
+.project-gallery .row {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 2rem;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.project-gallery .col-4 {
+    width: 33.333%;
+    flex: 0 0 33.333%;
+}
+
+.project-gallery .image.fit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    padding: 0.5rem;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: none;
+}
+
+.project-gallery .image.fit img {
+    width: 100%;
+    height: 260px;         /* ajuste entre 220px et 280px selon le rendu voulu */
+    object-fit: contain;   /* garde l’image entière sans la couper */
+    display: block;
+}
+
+/* Responsive mobile */
+@media screen and (max-width: 980px) {
+    .project-gallery .row {
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .project-gallery .col-4 {
+        width: 100%;
+        flex: 0 0 100%;
+    }
+
+    .project-gallery .image.fit img {
+        height: 220px;
+    }
+}
+/* Agrandir la fenêtre centrale des articles */
+#main article {
+    width: 85rem;
+    max-width: 95vw;
+    padding: 4rem 4rem 3rem 4rem;
+}
+
+/* Optionnel : un peu plus de hauteur visible */
+#main article.active {
+    max-height: 90vh;
+}
+/* Forcer 2 colonnes au lieu de 3 */
+#projects .posts {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+/* Responsive : 1 colonne sur mobile */
+@media screen and (max-width: 768px) {
+    #projects .posts {
+        grid-template-columns: 1fr;
+    }
+}
+#projects .posts section .image {
+  display: block;
+  width: 100%;
+  height: 260px; /* augmente ici */
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+#projects .posts section .image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+/* Centrer les projets quand il y en a peu */
+#projects .posts {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+#projects h3 {
+  margin-top: 0.8rem; /* ajuste entre 0.6 et 1rem selon ton goût */
+}
+
+/* Taille propre de la carte */
+#projects .posts section {
+  max-width: 400px;
+  width: 100%;
+}
+#competances .features {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+
+/* Met icône + titre sur la même ligne */
+#competances .features section {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+/* Icône */
+#competances .features section .icon {
+  flex-shrink: 0;
+  font-size: 2rem;
+  margin: 0;
+}
+
+/* Contenu texte */
+#competances .features section .content {
+  margin: 0;
+}
+
+/* Titre bien aligné */
+#competances .features section h3 {
+  margin-top: 0;
+}
+.video-box {
+	max-width: 400px;
+	margin: auto;
+}
+
+.video-box video {
+	width: 100%;
+	border-radius: 12px;
+	box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
